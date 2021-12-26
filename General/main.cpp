@@ -3,7 +3,7 @@
 #include "Game.h"
 
 
-int main()
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
   Game().run();
   return 0;

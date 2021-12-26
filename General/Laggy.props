@@ -5,7 +5,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)libs\DirectXTK\Inc;$(SolutionDir)libs\LaggySdk;$(SolutionDir)libs\LaggyDx;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\DirectXTK\Inc;$(SolutionDir)..\LaggySdk;$(SolutionDir)..\LaggyDx;</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup />

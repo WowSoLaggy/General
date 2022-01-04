@@ -7,6 +7,18 @@
     <Filter Include="src\Game">
       <UniqueIdentifier>{cd5a3df7-5fbf-4341-ab5f-fe9a723fa457}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Session">
+      <UniqueIdentifier>{45925c82-96da-4c87-801a-2b06351afaeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\SessionView">
+      <UniqueIdentifier>{b1bc871d-69a5-4367-8dd2-475563200323}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\World">
+      <UniqueIdentifier>{511564c4-21b9-42ec-ae48-820de1aee800}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameController">
+      <UniqueIdentifier>{18c2460b-4b97-486e-9b4a-54939b285f70}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,12 +30,51 @@
     <ClCompile Include="Game.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Session.cpp">
+      <Filter>src\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionView.cpp">
+      <Filter>src\SessionView</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>src\World</Filter>
+    </ClCompile>
+    <ClCompile Include="GameController.cpp">
+      <Filter>src\GameController</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateTransition.cpp">
+      <Filter>src\GameController</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
+      <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>src\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="Fwd.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionView.h">
+      <Filter>src\SessionView</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>src\World</Filter>
+    </ClInclude>
+    <ClInclude Include="GameController.h">
+      <Filter>src\GameController</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>src\GameController</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateTransition.h">
+      <Filter>src\GameController</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEvents.h">
       <Filter>src\Game</Filter>
     </ClInclude>
   </ItemGroup>

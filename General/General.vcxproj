@@ -144,14 +144,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameController.cpp" />
+    <ClCompile Include="GameStateTransition.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Session.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SessionView.cpp" />
+    <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Fwd.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameController.h" />
+    <ClInclude Include="GameEvents.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStateTransition.h" />
+    <ClInclude Include="Session.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SessionView.h" />
+    <ClInclude Include="Tile.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LaggyDx\LaggyDx\LaggyDx.vcxproj">

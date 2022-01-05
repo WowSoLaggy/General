@@ -10,7 +10,7 @@
 class SessionView
 {
 public:
-  SessionView(const Game& i_game);
+  SessionView(Game& i_game);
 
   void render();
   void update(double i_dt);

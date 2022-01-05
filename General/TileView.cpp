@@ -9,7 +9,7 @@
 
 TileView::TileView(const Dx::IResourceController& i_resourceController)
 {
-  d_fbxResource = &i_resourceController.getFbxResource("Cube_test.fbx");
+  d_fbxResource = &i_resourceController.getFbxResource("cube_test.fbx");
   d_textureResource = &i_resourceController.getTextureResource("cube_unwrap.png");
 }
 

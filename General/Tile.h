@@ -1,6 +1,8 @@
 #pragma once
 
+#include "Object.h"
 
-class Tile
+
+class Tile : public Object
 {
 };

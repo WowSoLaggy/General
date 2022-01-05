@@ -143,28 +143,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CreateSession.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameStateTransition.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SessionView.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CreateSession.h" />
     <ClInclude Include="Fwd.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameEvents.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateTransition.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SessionView.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileView.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LaggyDx\LaggyDx\LaggyDx.vcxproj">

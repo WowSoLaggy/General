@@ -16,4 +16,7 @@ private:
   Game& d_game;
 
   void showMainMenu();
+
+  void onNewGameClick();
+  void onExitClick();
 };

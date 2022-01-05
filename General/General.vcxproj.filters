@@ -13,11 +13,11 @@
     <Filter Include="src\SessionView">
       <UniqueIdentifier>{b1bc871d-69a5-4367-8dd2-475563200323}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\World">
-      <UniqueIdentifier>{511564c4-21b9-42ec-ae48-820de1aee800}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\GameController">
       <UniqueIdentifier>{18c2460b-4b97-486e-9b4a-54939b285f70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\World">
+      <UniqueIdentifier>{511564c4-21b9-42ec-ae48-820de1aee800}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +44,15 @@
     </ClCompile>
     <ClCompile Include="GameStateTransition.cpp">
       <Filter>src\GameController</Filter>
+    </ClCompile>
+    <ClCompile Include="TileView.cpp">
+      <Filter>src\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>src\World</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateSession.cpp">
+      <Filter>src\Session</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +85,15 @@
     </ClInclude>
     <ClInclude Include="GameEvents.h">
       <Filter>src\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="TileView.h">
+      <Filter>src\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>src\World</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateSession.h">
+      <Filter>src\Session</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

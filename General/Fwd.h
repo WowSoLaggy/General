@@ -2,3 +2,4 @@
 
 class Game;
 class Session;
+class Tile;

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "GameController.h"
 
+#include "CreateSession.h"
 #include "Game.h"
 #include "GameEvents.h"
 
@@ -65,10 +66,26 @@ void GameController::showMainMenu()
   {
     auto btnNewGame = button(layoutButtons);
     btnNewGame->setText("New Game");
+    btnNewGame->setOnPress(std::bind(&GameController::onNewGameClick, this));
   }
 
   {
     auto btnExitGame = button(layoutButtons);
     btnExitGame->setText("Exit Game");
+    btnExitGame->setOnPress(std::bind(&GameController::onExitClick, this));
   }
+}
+
+
+void GameController::onNewGameClick()
+{
+  d_game.getForm().removeChildren();
+
+  d_game.attachSession(createSession());
+  d_game.attachSessionView();
+}
+
+void GameController::onExitClick()
+{
+  d_game.stop();
 }

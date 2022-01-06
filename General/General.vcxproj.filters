@@ -28,6 +28,9 @@
     <Filter Include="src\MenuCreator">
       <UniqueIdentifier>{c7d247bf-213f-45f9-be8f-fab5049a220c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\CameraController">
+      <UniqueIdentifier>{38554f3c-53d9-4588-9ea1-bfa4934bc5dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -65,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="MenuCreator.cpp">
       <Filter>src\MenuCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraController.cpp">
+      <Filter>src\CameraController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +118,12 @@
     </ClInclude>
     <ClInclude Include="MenuCreator.h">
       <Filter>src\MenuCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraSettings.h">
+      <Filter>src\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraController.h">
+      <Filter>src\CameraController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

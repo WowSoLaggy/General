@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="CreateSession.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameController.cpp" />
@@ -159,6 +160,8 @@
     <ClCompile Include="TileView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CameraController.h" />
+    <ClInclude Include="CameraSettings.h" />
     <ClInclude Include="CreateSession.h" />
     <ClInclude Include="Fwd.h" />
     <ClInclude Include="Game.h" />

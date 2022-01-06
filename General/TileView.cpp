@@ -20,7 +20,7 @@ void TileView::setTile(const Tile& i_tile)
 }
 
 
-const Sdk::Vector3F& TileView::getPosition() const
+Sdk::Vector3F TileView::getPosition() const
 {
   CONTRACT_EXPECT(d_tile);
   return d_tile->getPosition();

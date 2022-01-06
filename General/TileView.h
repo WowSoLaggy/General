@@ -13,7 +13,7 @@ public:
 
   void setTile(const Tile& i_tile);
 
-  virtual const Sdk::Vector3F& getPosition() const override;
+  virtual Sdk::Vector3F getPosition() const override;
   virtual const Sdk::Vector3F& getRotation() const override;
   virtual const Sdk::Vector3F& getScale() const override;
 

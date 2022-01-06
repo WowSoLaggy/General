@@ -22,6 +22,9 @@
     <Filter Include="src\View">
       <UniqueIdentifier>{74c5c5bf-3858-4878-9dcc-cef066b54c55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Settings">
+      <UniqueIdentifier>{24dcd87c-6c76-4ec3-8da2-9b1e54d529bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="TileView.h">
       <Filter>src\View</Filter>
+    </ClInclude>
+    <ClInclude Include="TileGridSettings.h">
+      <Filter>src\Settings</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

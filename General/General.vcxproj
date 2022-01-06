@@ -170,6 +170,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SessionView.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileGridSettings.h" />
     <ClInclude Include="TileView.h" />
   </ItemGroup>
   <ItemGroup>

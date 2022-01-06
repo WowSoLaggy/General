@@ -4,12 +4,42 @@
 #include "Tile.h"
 
 
+namespace
+{
+  void createMap(Session& i_session)
+  {
+    auto& tiles = i_session.getTiles();
+    auto createTile = [&](const int i_x, const int i_y) -> Tile&
+    {
+      auto tilePtr = std::make_shared<Tile>();
+      tiles.push_back(tilePtr);
+      auto& tile = *tilePtr;
+
+      tile.setCoords({ i_x, i_y });
+
+      return tile;
+    };
+
+    constexpr int mapSizeX = 3;
+    constexpr int mapSizeY = 3;
+    for (int y = 0; y < mapSizeY; ++y)
+    {
+      const int sizeXModified = y % 2 == 1 ? mapSizeX - 1 : mapSizeX;
+      for (int x = 0; x < sizeXModified; ++x)
+      {
+        auto& tile = createTile(x, y);
+      }
+    }
+  }
+
+} // anonym NS
+
+
 std::unique_ptr<Session> createSession()
 {
   auto session = std::make_unique<Session>();
-  auto& tiles = session->getTiles();
-
-  tiles.push_back(std::make_shared<Tile>());
+  
+  createMap(*session);
 
   return session;
 }

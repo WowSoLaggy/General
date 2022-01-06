@@ -25,6 +25,9 @@
     <Filter Include="src\Settings">
       <UniqueIdentifier>{24dcd87c-6c76-4ec3-8da2-9b1e54d529bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\MenuCreator">
+      <UniqueIdentifier>{c7d247bf-213f-45f9-be8f-fab5049a220c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -59,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="TileView.cpp">
       <Filter>src\View</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCreator.cpp">
+      <Filter>src\MenuCreator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="TileGridSettings.h">
       <Filter>src\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCreator.h">
+      <Filter>src\MenuCreator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

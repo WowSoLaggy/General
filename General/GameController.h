@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Fwd.h"
+#include "MenuCreator.h"
 
 #include <LaggySdk/EventHandler.h>
 
@@ -12,11 +13,12 @@ public:
 
   virtual void processEvent(const Sdk::IEvent& i_event) override;
 
-private:
-  Game& d_game;
-
-  void showMainMenu();
-
   void onNewGameClick();
   void onExitClick();
+
+private:
+  Game& d_game;
+  MenuCreator d_menuCreator;
+
+  void showMainMenu();
 };

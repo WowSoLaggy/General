@@ -31,6 +31,9 @@
     <Filter Include="src\CameraController">
       <UniqueIdentifier>{38554f3c-53d9-4588-9ea1-bfa4934bc5dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ActionsController">
+      <UniqueIdentifier>{81162d9e-ade3-48da-b168-361c9141973c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -71,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="CameraController.cpp">
       <Filter>src\CameraController</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionsController.cpp">
+      <Filter>src\ActionsController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="CameraController.h">
       <Filter>src\CameraController</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionsController.h">
+      <Filter>src\ActionsController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

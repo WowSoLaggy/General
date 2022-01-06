@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "GameController.h"
 
+#include "ActionsController.h"
 #include "CreateSession.h"
 #include "Game.h"
 #include "GameEvents.h"
@@ -35,6 +36,8 @@ void GameController::onNewGameClick()
 
   d_game.attachSession(createSession());
   d_game.attachSessionView();
+
+  ActionsController().createActionsInGame(d_game);
 }
 
 void GameController::onExitClick()

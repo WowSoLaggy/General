@@ -20,6 +20,7 @@ public:
   void attachSessionView();
 
   Session& getSession() const;
+  SessionView& getSessionView() const;
 
 private:
   std::unique_ptr<GameController> d_controller;

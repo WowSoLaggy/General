@@ -66,5 +66,12 @@ void Game::attachSessionView()
 
 Session& Game::getSession() const
 {
+  CONTRACT_ASSERT(d_session);
   return *d_session;
+}
+
+SessionView& Game::getSessionView() const
+{
+  CONTRACT_ASSERT(d_sessionView);
+  return *d_sessionView;
 }

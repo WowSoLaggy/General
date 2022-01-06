@@ -8,18 +8,28 @@
 
 
 SessionView::SessionView(Game& i_game)
-  : d_camera(CameraController::createDefaultCamera())
-  , d_simpleRenderer(Dx::ISimpleRenderer::getOrCreate(
-      i_game.getRenderDevice(), *d_camera, i_game.getResourceController()))
+  : d_simpleRenderer(Dx::ISimpleRenderer::getOrCreate(
+      i_game.getRenderDevice(), d_cameraController.getCamera(), i_game.getResourceController()))
   , d_session(i_game.getSession())
   , d_tileView(i_game.getResourceController())
 {
 }
 
 
+CameraController& SessionView::getCameraController()
+{
+  return d_cameraController;
+}
+
+const CameraController& SessionView::getCameraController() const
+{
+  return d_cameraController;
+}
+
+
 void SessionView::render()
 {
-  for (const auto tilePtr : d_session.getTiles())
+  for (const auto& tilePtr : d_session.getTiles())
   {
     d_tileView.setTile(*tilePtr);
     d_simpleRenderer.draw(d_tileView);
@@ -28,4 +38,5 @@ void SessionView::render()
 
 void SessionView::update(double i_dt)
 {
+  d_cameraController.update(i_dt);
 }

@@ -11,4 +11,5 @@ public:
   static constexpr float Distance = 10.0f;
   static constexpr float Yaw = Sdk::degToRad(-90.0f);
   static constexpr float Pitch = Sdk::degToRad(45.0f);
+  static constexpr float Speed = 0.1f;
 };

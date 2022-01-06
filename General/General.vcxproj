@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionsController.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="CreateSession.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="TileView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionsController.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="CameraSettings.h" />
     <ClInclude Include="CreateSession.h" />

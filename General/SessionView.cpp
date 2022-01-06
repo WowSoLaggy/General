@@ -17,8 +17,8 @@ SessionView::SessionView(Game& i_game)
 {
   d_camera->setUp({ 0.0f, 0.0f, 1.0f });
   d_camera->setLookAt({ 0.0f, 0.0f, 0.0f });
-  d_camera->setDistance(20.0f);
-  d_camera->setYaw(Sdk::degToRad(45.0f));
+  d_camera->setDistance(10.0f);
+  d_camera->setYaw(Sdk::degToRad(-90.0f));
   d_camera->setPitch(Sdk::degToRad(45.0f));
 }
 
@@ -34,5 +34,4 @@ void SessionView::render()
 
 void SessionView::update(double i_dt)
 {
-  d_camera->setYaw(d_camera->getYaw() + (float)i_dt);
 }

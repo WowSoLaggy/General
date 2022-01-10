@@ -45,5 +45,23 @@ void ActionsController::createActionsInGame(Game& i_game)
     Dx::Action(std::bind(&CameraController::moveRightStop, &i_game.getSessionView().getCameraController())),
     Dx::ActionType::OnRelease);
 
+  map.setAction(
+    Dx::KeyboardKey::Q,
+    Dx::Action(std::bind(&CameraController::rotateCwStart, &i_game.getSessionView().getCameraController())),
+    Dx::ActionType::OnPress);
+  map.setAction(
+    Dx::KeyboardKey::Q,
+    Dx::Action(std::bind(&CameraController::rotateCwStop, &i_game.getSessionView().getCameraController())),
+    Dx::ActionType::OnRelease);
+
+  map.setAction(
+    Dx::KeyboardKey::E,
+    Dx::Action(std::bind(&CameraController::rotateCcwStart, &i_game.getSessionView().getCameraController())),
+    Dx::ActionType::OnPress);
+  map.setAction(
+    Dx::KeyboardKey::E,
+    Dx::Action(std::bind(&CameraController::rotateCcwStop, &i_game.getSessionView().getCameraController())),
+    Dx::ActionType::OnRelease);
+
   i_game.setActionsMap(std::move(map));
 }

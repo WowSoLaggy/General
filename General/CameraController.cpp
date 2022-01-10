@@ -4,6 +4,7 @@
 #include "CameraSettings.h"
 
 #include <LaggyDx/Game.h>
+#include <LaggySdk/Math.h>
 
 
 CameraController::CameraController()
@@ -33,16 +34,26 @@ void CameraController::moveUpStart() { d_moveUp = true; }
 void CameraController::moveUpStop() { d_moveUp = false; }
 void CameraController::moveDownStart() { d_moveDown = true; }
 void CameraController::moveDownStop() { d_moveDown = false; }
+void CameraController::rotateCwStart() { d_rotateCw = true; }
+void CameraController::rotateCwStop() { d_rotateCw = false; }
+void CameraController::rotateCcwStart() { d_rotateCcw = true; }
+void CameraController::rotateCcwStop() { d_rotateCcw = false; }
 
 
 void CameraController::update(const double i_dt)
 {
   auto moveCamera = [&](const Sdk::Vector3F& i_direction)
   {
-    const auto movement = Sdk::normalize(i_direction) * CameraSettings::Speed;
+    const auto movement = Sdk::normalize(i_direction) * (float)(CameraSettings::SpeedLinear * i_dt);
     const auto& lookAt = getCamera().getLookAt();
     const auto newLookAt = Sdk::Vector3F{ lookAt.x + movement.x, lookAt.y + movement.y, 0.0f };
     getCamera().setLookAt(newLookAt);
+  };
+
+  auto rotateCamera = [&](const double i_direction)
+  {
+    const auto rotation = Sdk::sign(i_direction) * CameraSettings::SpeedAngular * i_dt;
+    getCamera().setYaw(getCamera().getYaw() + (float)rotation);
   };
 
   if (d_moveRight && !d_moveLeft)
@@ -54,6 +65,11 @@ void CameraController::update(const double i_dt)
     moveCamera(getCamera().getForward());
   else if (d_moveDown && !d_moveUp)
     moveCamera(getCamera().getBackward());
+
+  if (d_rotateCw && !d_rotateCcw)
+    rotateCamera(-1);
+  else if (d_rotateCcw && !d_rotateCw)
+    rotateCamera(1);
 }
 
 

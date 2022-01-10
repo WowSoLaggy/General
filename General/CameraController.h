@@ -19,6 +19,10 @@ public:
   void moveUpStop();
   void moveDownStart();
   void moveDownStop();
+  void rotateCwStart();
+  void rotateCwStop();
+  void rotateCcwStart();
+  void rotateCcwStop();
 
   void update(double i_dt);
 
@@ -29,6 +33,8 @@ private:
   bool d_moveLeft = false;
   bool d_moveUp = false;
   bool d_moveDown = false;
+  bool d_rotateCw = false;
+  bool d_rotateCcw = false;
 
   void createDefaultCamera();
 };

@@ -25,6 +25,8 @@ public:
 private:
   const Tile* d_tile = nullptr;
 
+  const Dx::IResourceController& d_resourceController;
+
   const Dx::IFbxResource* d_fbxResource = nullptr;
   const Dx::ITextureResource* d_textureResource = nullptr;
 };

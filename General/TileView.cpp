@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TileView.h"
 
+#include "Prototype.h"
 #include "Tile.h"
 
 #include <LaggyDx/FbxResource.h>
@@ -8,15 +9,17 @@
 
 
 TileView::TileView(const Dx::IResourceController& i_resourceController)
+  : d_resourceController(i_resourceController)
 {
-  d_fbxResource = &i_resourceController.getFbxResource("plane.fbx");
-  d_textureResource = &i_resourceController.getTextureResource("tile_grass.png");
 }
 
 
 void TileView::setTile(const Tile& i_tile)
 {
   d_tile = &i_tile;
+
+  d_fbxResource = &d_resourceController.getFbxResource(d_tile->getPrototype().modelFilepath);
+  d_textureResource = &d_resourceController.getTextureResource(d_tile->getPrototype().textureFilepath);
 }
 
 

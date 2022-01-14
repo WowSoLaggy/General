@@ -1,7 +1,14 @@
 #include "stdafx.h"
 #include "Tile.h"
 
+#include "PrototypeCollection.h"
 #include "TileGridSettings.h"
+
+
+Tile::Tile()
+  : Object(PrototypeCollection::get("tile"))
+{
+}
 
 
 void Tile::setCoords(Sdk::Vector2I i_coords)

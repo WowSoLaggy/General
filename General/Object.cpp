@@ -2,6 +2,18 @@
 #include "Object.h"
 
 
+Object::Object(const Prototype& i_prototype)
+  : d_prototype(i_prototype)
+{
+}
+
+
+const Prototype& Object::getPrototype() const
+{
+  return d_prototype;
+}
+
+
 Sdk::Vector3F Object::getPosition() const { return d_position; }
 const Sdk::Vector3F& Object::getRotation() const { return d_rotation; }
 const Sdk::Vector3F& Object::getScale() const { return d_scale; }

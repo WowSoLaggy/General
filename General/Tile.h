@@ -6,6 +6,8 @@
 class Tile : public Object
 {
 public:
+  Tile();
+
   void setCoords(Sdk::Vector2I i_coords);
   const Sdk::Vector2I& getCoords() const;
 

@@ -34,6 +34,9 @@
     <Filter Include="src\ActionsController">
       <UniqueIdentifier>{81162d9e-ade3-48da-b168-361c9141973c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Prototypes">
+      <UniqueIdentifier>{34f1c5b1-b999-43a8-90d1-f92d30c0de2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -77,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="ActionsController.cpp">
       <Filter>src\ActionsController</Filter>
+    </ClCompile>
+    <ClCompile Include="PrototypeCollection.cpp">
+      <Filter>src\Prototypes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="ActionsController.h">
       <Filter>src\ActionsController</Filter>
+    </ClInclude>
+    <ClInclude Include="Prototype.h">
+      <Filter>src\Prototypes</Filter>
+    </ClInclude>
+    <ClInclude Include="PrototypeCollection.h">
+      <Filter>src\Prototypes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

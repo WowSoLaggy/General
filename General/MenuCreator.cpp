@@ -60,12 +60,12 @@ void MenuCreator::createMainMenu(Dx::IControl& i_parent) const
   {
     auto btnNewGame = button(layoutButtons);
     btnNewGame->setText("New Game");
-    btnNewGame->setOnPress(std::bind(&GameController::onNewGameClick, d_gameController));
+    btnNewGame->setOnPress(std::bind(&GameController::onNewGameClick, &d_gameController));
   }
 
   {
     auto btnExitGame = button(layoutButtons);
     btnExitGame->setText("Exit Game");
-    btnExitGame->setOnPress(std::bind(&GameController::onExitClick, d_gameController));
+    btnExitGame->setOnPress(std::bind(&GameController::onExitClick, &d_gameController));
   }
 }

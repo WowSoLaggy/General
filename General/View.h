@@ -6,12 +6,12 @@
 #include <LaggyDx/LaggyDxFwd.h>
 
 
-class TileView : public Dx::IObject3
+class View : public Dx::IObject3
 {
 public:
-  TileView(const Dx::IResourceController& i_resourceController);
+  View(const Dx::IResourceController& i_resourceController);
 
-  void setTile(const Tile& i_tile);
+  void setObject(const Object& i_object);
 
   virtual Sdk::Vector3F getPosition() const override;
   virtual const Sdk::Vector3F& getRotation() const override;
@@ -23,7 +23,7 @@ public:
   virtual const Dx::ITextureResource& getTextureResource() const override;
 
 private:
-  const Tile* d_tile = nullptr;
+  const Object* d_object = nullptr;
 
   const Dx::IResourceController& d_resourceController;
 

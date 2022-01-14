@@ -2,7 +2,7 @@
 
 #include "CameraController.h"
 #include "Fwd.h"
-#include "TileView.h"
+#include "View.h"
 
 #include <LaggyDx/LaggyDxFwd.h>
 
@@ -24,5 +24,5 @@ private:
 
   Session& d_session;
 
-  TileView d_tileView;
+  View d_view;
 };

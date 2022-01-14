@@ -159,7 +159,7 @@
     </ClCompile>
     <ClCompile Include="SessionView.cpp" />
     <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="TileView.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionsController.h" />
@@ -181,7 +181,7 @@
     <ClInclude Include="SessionView.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGridSettings.h" />
-    <ClInclude Include="TileView.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LaggyDx\LaggyDx\LaggyDx.vcxproj">

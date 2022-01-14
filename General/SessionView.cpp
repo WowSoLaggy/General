@@ -3,6 +3,7 @@
 
 #include "CameraController.h"
 #include "Game.h"
+#include "Tile.h"
 
 #include <LaggyDx/ISimpleRenderer.h>
 
@@ -11,7 +12,7 @@ SessionView::SessionView(Game& i_game)
   : d_simpleRenderer(Dx::ISimpleRenderer::getOrCreate(
       i_game.getRenderDevice(), d_cameraController.getCamera(), i_game.getResourceController()))
   , d_session(i_game.getSession())
-  , d_tileView(i_game.getResourceController())
+  , d_view(i_game.getResourceController())
 {
 }
 
@@ -31,8 +32,8 @@ void SessionView::render()
 {
   for (const auto& tilePtr : d_session.getTiles())
   {
-    d_tileView.setTile(*tilePtr);
-    d_simpleRenderer.draw(d_tileView);
+    d_view.setObject(*tilePtr);
+    d_simpleRenderer.draw(d_view);
   }
 }
 

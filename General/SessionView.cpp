@@ -35,6 +35,12 @@ void SessionView::render()
     d_view.setObject(*tilePtr);
     d_simpleRenderer.draw(d_view);
   }
+
+  for (const auto& objPtr : d_session.getObjects())
+  {
+    d_view.setObject(*objPtr);
+    d_simpleRenderer.draw(d_view);
+  }
 }
 
 void SessionView::update(double i_dt)

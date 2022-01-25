@@ -14,29 +14,88 @@ View::View(const Dx::IResourceController& i_resourceController)
 }
 
 
-void View::setObject(const Object& i_object)
+void View::setObject(Object& i_object)
 {
   d_object = &i_object;
 
   d_fbxResource = &d_resourceController.getFbxResource(d_object->getPrototype().modelFilepath);
   d_textureResource = &d_resourceController.getTextureResource(d_object->getPrototype().textureFilepath);
+
+  checkAnimation();
+}
+
+
+const Dx::Animation* View::getAnimation() const
+{
+  if (!d_object->hasAnimation())
+    return nullptr;
+
+  const auto* fbxResource = dynamic_cast<const Dx::FbxResource*>(d_fbxResource);
+  CONTRACT_ASSERT(fbxResource);
+
+  const auto& animations = fbxResource->getAnimations();
+  const auto it = animations.find(d_object->getAnimation());
+  if (it == animations.end())
+    return nullptr;
+
+  return &it->second;
+}
+
+void View::checkAnimation() const
+{
+  CONTRACT_EXPECT(d_object);
+
+  if (const auto* animation = getAnimation())
+  {
+    if (d_object->getAnimationTime() >= animation->length)
+      d_object->onAnimationEnd(animation->length);
+  }
 }
 
 
 Sdk::Vector3F View::getPosition() const
 {
   CONTRACT_EXPECT(d_object);
-  return d_object->getPosition();
+
+  const auto ownPos = d_object->getPosition();
+
+  if (const auto* animation = getAnimation())
+  {
+    const auto animPos = animation->getTranslation(d_object->getAnimationTime());
+    return ownPos + animPos;
+  }
+
+  return ownPos;
 }
-const Sdk::Vector3F& View::getRotation() const
+
+Sdk::Vector3F View::getRotation() const
 {
   CONTRACT_EXPECT(d_object);
-  return d_object->getRotation();
+
+  const auto ownRot = d_object->getRotation();
+
+  if (const auto* animation = getAnimation())
+  {
+    const auto animRot = animation->getRotation(d_object->getAnimationTime());
+    return ownRot + animRot;
+  }
+
+  return ownRot;
 }
-const Sdk::Vector3F& View::getScale() const
+
+Sdk::Vector3F View::getScale() const
 {
   CONTRACT_EXPECT(d_object);
-  return d_object->getScale();
+  
+  const auto ownScale = d_object->getScale();
+
+  if (const auto* animation = getAnimation())
+  {
+    const auto animScale = animation->getScale(d_object->getAnimationTime());
+    return ownScale * animScale;
+  }
+
+  return ownScale;
 }
 
 const Dx::VertexBuffer& View::getVertexBuffer() const

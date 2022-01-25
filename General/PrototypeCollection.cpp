@@ -16,7 +16,7 @@ namespace
       { "tile", "plane.fbx", "tile_grass.png" } });
 
     map.insert({ "tank",
-      { "tank", "ball.fbx", "tile_grass.png" } });
+      { "tank", "ball.fbx", "cube_unwrap.png" } });
 
     return map;
   }

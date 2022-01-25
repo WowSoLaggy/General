@@ -8,15 +8,52 @@ Object::Object(const Prototype& i_prototype)
 }
 
 
-const Prototype& Object::getPrototype() const
-{
-  return d_prototype;
-}
-
+const Prototype& Object::getPrototype() const { return d_prototype; }
 
 Sdk::Vector3F Object::getPosition() const { return d_position; }
-const Sdk::Vector3F& Object::getRotation() const { return d_rotation; }
-const Sdk::Vector3F& Object::getScale() const { return d_scale; }
+Sdk::Vector3F Object::getRotation() const { return d_rotation; }
+Sdk::Vector3F Object::getScale() const { return d_scale; }
 void Object::setPosition(Sdk::Vector3F i_position) { d_position = std::move(i_position); }
 void Object::setRotation(Sdk::Vector3F i_rotation) { d_rotation = std::move(i_rotation); }
 void Object::setScale(Sdk::Vector3F i_scale) { d_scale = std::move(i_scale); }
+
+
+void Object::update(double i_dt)
+{
+  d_animationTime += i_dt;
+}
+
+
+void Object::setAnimation(std::string i_name, bool i_loop)
+{
+  d_animationName = std::move(i_name);
+  d_animationTime = 0.0;
+  d_animationLoop = i_loop;
+}
+
+const std::string& Object::getAnimation() const
+{
+  return d_animationName;
+}
+
+bool Object::hasAnimation() const
+{
+  return !d_animationName.empty();
+}
+
+double Object::getAnimationTime() const
+{
+  return d_animationTime;
+}
+
+
+void Object::onAnimationEnd(const double i_animLength)
+{
+  if (!d_animationLoop)
+  {
+    d_animationName = "";
+    d_animationTime = 0.0;
+  }
+  else
+    d_animationTime -= i_animLength;
+}

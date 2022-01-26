@@ -4,6 +4,7 @@
 #include "GameEvents.h"
 #include "Session.h"
 
+#include <LaggyDx/Colors.h>
 #include <LaggyDx/GameSettings.h>
 
 
@@ -22,6 +23,7 @@ Game::Game()
   : Dx::Game(getGameSettings())
 {
   getInputDevice().showCursor();
+  getRenderDevice().setClearColor(Dx::Colors::Gray10);
 
   attachController();
   notify(GameStartedEvent());

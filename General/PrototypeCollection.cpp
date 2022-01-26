@@ -12,9 +12,10 @@ namespace
   {
     PrototypesMap map;
 
+    map.insert({ "map",
+      { "map", "plane.fbx", "map.jpg" } });
     map.insert({ "tile",
       { "tile", "plane.fbx", "tile_grass.png" } });
-
     map.insert({ "tank",
       { "tank", "ball.fbx", "cube_unwrap.png" } });
 

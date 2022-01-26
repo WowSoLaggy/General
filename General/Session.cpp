@@ -5,6 +5,9 @@
 #include "Tile.h"
 
 
+std::shared_ptr<Object>& Session::getBackground() { return d_background; }
+const std::shared_ptr<Object>& Session::getBackground() const { return d_background; }
+
 std::vector<std::shared_ptr<Tile>>& Session::getTiles() { return d_tiles; }
 const std::vector<std::shared_ptr<Tile>>& Session::getTiles() const { return d_tiles; }
 

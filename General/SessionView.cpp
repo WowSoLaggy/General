@@ -30,6 +30,9 @@ const CameraController& SessionView::getCameraController() const
 
 void SessionView::render()
 {
+  d_view.setObject(*d_session.getBackground());
+  d_simpleRenderer.draw(d_view);
+
   for (const auto& tilePtr : d_session.getTiles())
   {
     d_view.setObject(*tilePtr);

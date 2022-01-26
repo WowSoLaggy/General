@@ -146,5 +146,8 @@
     <ClInclude Include="PrototypeCollection.h">
       <Filter>src\Prototypes</Filter>
     </ClInclude>
+    <ClInclude Include="RenderSettings.h">
+      <Filter>src\Settings</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

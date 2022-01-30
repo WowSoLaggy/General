@@ -40,6 +40,17 @@ void CameraController::rotateCcwStart() { d_rotateCcw = true; }
 void CameraController::rotateCcwStop() { d_rotateCcw = false; }
 
 
+void CameraController::zoomIn()
+{
+  d_camera->setDistance(d_camera->getDistance() * CameraSettings::ZoomInMultiplier);
+}
+
+void CameraController::zoomOut()
+{
+  d_camera->setDistance(d_camera->getDistance() * CameraSettings::ZoomOutMultiplier);
+}
+
+
 void CameraController::resetCamera()
 {
   d_camera->setUp(CameraSettings::Up);

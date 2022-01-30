@@ -13,4 +13,6 @@ public:
   static constexpr float Pitch = Sdk::degToRad(45.0f);
   static constexpr double SpeedLinear = 15;
   static constexpr double SpeedAngular = 3;
+  static constexpr float ZoomInMultiplier = 0.9f;
+  static constexpr float ZoomOutMultiplier = 1.11111111111f;
 };

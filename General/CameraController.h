@@ -24,6 +24,9 @@ public:
   void rotateCcwStart();
   void rotateCcwStop();
 
+  void zoomIn();
+  void zoomOut();
+
   void resetCamera();
 
   void update(double i_dt);

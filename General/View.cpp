@@ -23,7 +23,10 @@ void View::setObject(Object& i_object)
   CONTRACT_ASSERT(fbxResource);
   d_model = &fbxResource->getModel();
 
-  d_textureResource = &d_resourceController.getTextureResource(d_object->getPrototype().textureFilepath);
+  if (!d_object->getPrototype().textureFilepath.empty())
+    d_textureResource = &d_resourceController.getTextureResource(d_object->getPrototype().textureFilepath);
+  else
+    d_textureResource = nullptr;
 
   checkAnimation();
 }
@@ -105,8 +108,7 @@ const Dx::IModel& View::getModel() const
   CONTRACT_ASSERT(d_model);
   return *d_model;
 }
-const Dx::ITextureResource& View::getTextureResource() const
+const Dx::ITextureResource* View::getTextureResource() const
 {
-  CONTRACT_ASSERT(d_textureResource);
-  return *d_textureResource;
+  return d_textureResource;
 }

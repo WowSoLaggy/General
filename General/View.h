@@ -18,7 +18,7 @@ public:
   virtual Sdk::Vector3F getScale() const override;
 
   virtual const Dx::IModel& getModel() const override;
-  virtual const Dx::ITextureResource& getTextureResource() const override;
+  virtual const Dx::ITextureResource* getTextureResource() const override;
 
 private:
   Object* d_object = nullptr;

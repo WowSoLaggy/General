@@ -18,7 +18,11 @@ void View::setObject(Object& i_object)
 {
   d_object = &i_object;
 
-  d_fbxResource = &d_resourceController.getFbxResource(d_object->getPrototype().modelFilepath);
+  const auto& ifbxResource = d_resourceController.getFbxResource(d_object->getPrototype().modelFilepath);
+  const auto* fbxResource = dynamic_cast<const Dx::FbxResource*>(&ifbxResource);
+  CONTRACT_ASSERT(fbxResource);
+  d_model = &fbxResource->getModel();
+
   d_textureResource = &d_resourceController.getTextureResource(d_object->getPrototype().textureFilepath);
 
   checkAnimation();
@@ -30,10 +34,8 @@ const Dx::Animation* View::getAnimation() const
   if (!d_object->hasAnimation())
     return nullptr;
 
-  const auto* fbxResource = dynamic_cast<const Dx::FbxResource*>(d_fbxResource);
-  CONTRACT_ASSERT(fbxResource);
-
-  const auto& animations = fbxResource->getAnimations();
+  CONTRACT_ASSERT(d_model);
+  const auto& animations = d_model->getAnimations();
   const auto it = animations.find(d_object->getAnimation());
   if (it == animations.end())
     return nullptr;
@@ -98,26 +100,10 @@ Sdk::Vector3F View::getScale() const
   return ownScale;
 }
 
-const Dx::VertexBuffer& View::getVertexBuffer() const
+const Dx::IModel& View::getModel() const
 {
-  const auto* fbxResource = dynamic_cast<const Dx::FbxResource*>(d_fbxResource);
-  CONTRACT_ASSERT(fbxResource);
-
-  return fbxResource->getVertexBuffer();
-}
-const Dx::IndexBuffer& View::getIndexBuffer() const
-{
-  const auto* fbxResource = dynamic_cast<const Dx::FbxResource*>(d_fbxResource);
-  CONTRACT_ASSERT(fbxResource);
-
-  return fbxResource->getIndexBuffer();
-}
-const Dx::IMaterialSequence& View::getMaterials() const
-{
-  const auto* fbxResource = dynamic_cast<const Dx::FbxResource*>(d_fbxResource);
-  CONTRACT_ASSERT(fbxResource);
-
-  return fbxResource->getMaterials();
+  CONTRACT_ASSERT(d_model);
+  return *d_model;
 }
 const Dx::ITextureResource& View::getTextureResource() const
 {

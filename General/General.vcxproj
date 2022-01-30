@@ -182,6 +182,7 @@
     <ClInclude Include="SessionView.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGridSettings.h" />
+    <ClInclude Include="TileSettings.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>

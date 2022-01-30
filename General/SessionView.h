@@ -25,4 +25,6 @@ private:
   Session& d_session;
 
   View d_view;
+
+  void renderTile(Tile& i_tile);
 };

@@ -40,6 +40,15 @@ void CameraController::rotateCcwStart() { d_rotateCcw = true; }
 void CameraController::rotateCcwStop() { d_rotateCcw = false; }
 
 
+void CameraController::resetCamera()
+{
+  d_camera->setUp(CameraSettings::Up);
+  d_camera->setDistance(CameraSettings::Distance);
+  d_camera->setYaw(CameraSettings::Yaw);
+  d_camera->setPitch(CameraSettings::Pitch);
+}
+
+
 void CameraController::update(const double i_dt)
 {
   auto moveCamera = [&](const Sdk::Vector3F& i_direction)
@@ -78,8 +87,5 @@ void CameraController::createDefaultCamera()
   d_camera = Dx::ICamera::createCamera(Dx::Game::get().getRenderDevice().getResolution());
   CONTRACT_ASSERT(d_camera);
 
-  d_camera->setUp(CameraSettings::Up);
-  d_camera->setDistance(CameraSettings::Distance);
-  d_camera->setYaw(CameraSettings::Yaw);
-  d_camera->setPitch(CameraSettings::Pitch);
+  resetCamera();
 }

@@ -149,5 +149,8 @@
     <ClInclude Include="RenderSettings.h">
       <Filter>src\Settings</Filter>
     </ClInclude>
+    <ClInclude Include="TileSettings.h">
+      <Filter>src\Settings</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

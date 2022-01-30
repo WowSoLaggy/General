@@ -8,15 +8,18 @@
 
 namespace
 {
-  void createBackground(Session& i_session, const int i_mapSizeX, const int i_mapSizeY)
+  void createBackground(Session& i_session)
   {
+    const int mapSizeX = i_session.getSizeX();
+    const int mapSizeY = i_session.getSizeY();
+
     auto background = std::make_shared<Object>(PrototypeCollection::get("map"));
 
-    const float middleX = (i_mapSizeX - 1) * TileGridSettings::TileOffsetX / 2;
-    const float middleY = (i_mapSizeY - 1) * TileGridSettings::TileOffsetY / 2;
+    const float middleX = (mapSizeX - 1) * TileGridSettings::TileOffsetX / 2;
+    const float middleY = (mapSizeY - 1) * TileGridSettings::TileOffsetY / 2;
 
-    const float scaleX = i_mapSizeX * TileGridSettings::TileOffsetX / 2;
-    const float scaleY = i_mapSizeY * TileGridSettings::TileOffsetY / 2;
+    const float scaleX = mapSizeX * TileGridSettings::TileOffsetX / 2;
+    const float scaleY = mapSizeY * TileGridSettings::TileOffsetY / 2;
 
     background->setPosition({ middleX, middleY, -0.1f });
     background->setScale({ scaleX, scaleY, 1 });
@@ -24,8 +27,11 @@ namespace
     i_session.getBackground() = std::move(background);
   }
 
-  void createMap(Session& i_session, const int i_mapSizeX, const int i_mapSizeY)
+  void createMap(Session& i_session)
   {
+    const int mapSizeX = i_session.getSizeX();
+    const int mapSizeY = i_session.getSizeY();
+
     auto& tiles = i_session.getTiles();
     auto createTile = [&](const int i_x, const int i_y) -> Tile&
     {
@@ -38,19 +44,40 @@ namespace
       return tile;
     };
 
-    for (int y = 0; y < i_mapSizeY; ++y)
+    for (int y = 0; y < mapSizeY; ++y)
     {
-      const int sizeXModified = y % 2 == 1 ? i_mapSizeX - 1 : i_mapSizeX;
+      const int sizeXModified = y % 2 == 1 ? mapSizeX - 1 : mapSizeX;
       for (int x = 0; x < sizeXModified; ++x)
         auto& tile = createTile(x, y);
     }
   }
 
-  void createObjects(Session& i_session)
+  void createStartObjects(Session& i_session)
   {
-    auto tank = std::make_shared<Object>(PrototypeCollection::get("tank"));
-    tank->setAnimation("idle", true);
-    i_session.getObjects().push_back(std::move(tank));
+    auto createBase = [&](const Sdk::Vector2I& i_coords)
+    {
+      auto base = std::make_shared<Object>(PrototypeCollection::get("base"));
+      base->setAnimation("idle", true);
+      i_session.getTile(i_coords).addStructure(std::move(base));
+    };
+
+    auto createWorker = [&](const Sdk::Vector2I& i_coords)
+    {
+      auto worker = std::make_shared<Object>(PrototypeCollection::get("worker"));
+      worker->setAnimation("idle", true);
+      i_session.getTile(i_coords).addArmy(std::move(worker));
+    };
+
+    const std::array<Sdk::Vector2I, 2> StartLocations{ {
+      { 0, 0 },
+      { 2, 2 }
+    } };
+
+    for (const auto& startLocation : StartLocations)
+    {
+      createBase(startLocation);
+      createWorker(startLocation);
+    }
   }
 
 } // anonym NS
@@ -58,14 +85,11 @@ namespace
 
 std::unique_ptr<Session> createSession()
 {
-  auto session = std::make_unique<Session>();
+  auto session = std::make_unique<Session>(3, 3);
   
-  constexpr int MapSizeX = 3;
-  constexpr int MapSizeY = 3;
-
-  createBackground(*session, MapSizeX, MapSizeY);
-  createMap(*session, MapSizeX, MapSizeY);
-  createObjects(*session);
+  createBackground(*session);
+  createMap(*session);
+  createStartObjects(*session);
 
   return session;
 }

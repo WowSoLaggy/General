@@ -24,6 +24,8 @@ public:
   void rotateCcwStart();
   void rotateCcwStop();
 
+  void resetCamera();
+
   void update(double i_dt);
 
 private:

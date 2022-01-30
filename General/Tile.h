@@ -29,6 +29,8 @@ private:
   std::vector<std::shared_ptr<Object>> d_structures;
   std::vector<std::shared_ptr<Object>> d_armies;
 
+  Sdk::Vector3F getFloorPosition() const;
+
   void repositionStructures() const;
   void repositionArmies() const;
 };

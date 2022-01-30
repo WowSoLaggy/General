@@ -8,12 +8,12 @@ class TileSettings
 {
 public:
   static constexpr int MaxStructures = 3;
-  static constexpr int MaxArmies = 6;
+  static constexpr int MaxArmies = 4;
 
   static constexpr Sdk::Vector3F StructureOffsets[MaxStructures] {
     { 0.0f, 0.6f, 0.0f },
-    { -0.6f, 0.1f, 0.0f },
-    { 0.6f, 0.1f, 0.0f },
+    { -0.6f, 0.2f, 0.0f },
+    { 0.6f, 0.2f, 0.0f },
   };
 
   static constexpr float StructureRotations[MaxStructures] {
@@ -23,11 +23,9 @@ public:
   };
 
   static constexpr Sdk::Vector3F ArmiesOffsets[MaxArmies] {
-    { 0.0f, 0.0f, 0.0f },
-    { 0.0f, 0.0f, 0.0f },
-    { 0.0f, 0.0f, 0.0f },
-    { 0.0f, 0.0f, 0.0f },
-    { 0.0f, 0.0f, 0.0f },
-    { 0.0f, 0.0f, 0.0f },
+    { -0.2f, -0.3f, 0.0f },
+    { 0.2f, -0.3f, 0.0f },
+    { -0.2f, -0.7f, 0.0f },
+    { 0.2f, -0.7f, 0.0f },
   };
 };

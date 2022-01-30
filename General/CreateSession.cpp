@@ -76,6 +76,11 @@ namespace
     for (const auto& startLocation : StartLocations)
     {
       createBase(startLocation);
+      createBase(startLocation);
+      createBase(startLocation);
+      createWorker(startLocation);
+      createWorker(startLocation);
+      createWorker(startLocation);
       createWorker(startLocation);
     }
   }

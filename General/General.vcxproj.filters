@@ -10,12 +10,6 @@
     <Filter Include="src\Session">
       <UniqueIdentifier>{45925c82-96da-4c87-801a-2b06351afaeb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\SessionView">
-      <UniqueIdentifier>{b1bc871d-69a5-4367-8dd2-475563200323}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\GameController">
-      <UniqueIdentifier>{18c2460b-4b97-486e-9b4a-54939b285f70}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\World">
       <UniqueIdentifier>{511564c4-21b9-42ec-ae48-820de1aee800}</UniqueIdentifier>
     </Filter>
@@ -25,9 +19,6 @@
     <Filter Include="src\Settings">
       <UniqueIdentifier>{24dcd87c-6c76-4ec3-8da2-9b1e54d529bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\MenuCreator">
-      <UniqueIdentifier>{c7d247bf-213f-45f9-be8f-fab5049a220c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\CameraController">
       <UniqueIdentifier>{38554f3c-53d9-4588-9ea1-bfa4934bc5dd}</UniqueIdentifier>
     </Filter>
@@ -36,6 +27,18 @@
     </Filter>
     <Filter Include="src\Prototypes">
       <UniqueIdentifier>{34f1c5b1-b999-43a8-90d1-f92d30c0de2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Gui">
+      <UniqueIdentifier>{6bae98ae-38d7-4995-953d-2c3bc0e0f41b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Gui\MenuCreator">
+      <UniqueIdentifier>{c7d247bf-213f-45f9-be8f-fab5049a220c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\GameController">
+      <UniqueIdentifier>{18c2460b-4b97-486e-9b4a-54939b285f70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Session\SessionView">
+      <UniqueIdentifier>{b1bc871d-69a5-4367-8dd2-475563200323}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,16 +55,16 @@
       <Filter>src\Session</Filter>
     </ClCompile>
     <ClCompile Include="SessionView.cpp">
-      <Filter>src\SessionView</Filter>
+      <Filter>src\Session\SessionView</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>src\World</Filter>
     </ClCompile>
     <ClCompile Include="GameController.cpp">
-      <Filter>src\GameController</Filter>
+      <Filter>src\Game\GameController</Filter>
     </ClCompile>
     <ClCompile Include="GameStateTransition.cpp">
-      <Filter>src\GameController</Filter>
+      <Filter>src\Game\GameController</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>src\World</Filter>
@@ -73,7 +76,7 @@
       <Filter>src\View</Filter>
     </ClCompile>
     <ClCompile Include="MenuCreator.cpp">
-      <Filter>src\MenuCreator</Filter>
+      <Filter>src\Gui\MenuCreator</Filter>
     </ClCompile>
     <ClCompile Include="CameraController.cpp">
       <Filter>src\CameraController</Filter>
@@ -83,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="PrototypeCollection.cpp">
       <Filter>src\Prototypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui.cpp">
+      <Filter>src\Gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,19 +105,19 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="SessionView.h">
-      <Filter>src\SessionView</Filter>
+      <Filter>src\Session\SessionView</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>src\World</Filter>
     </ClInclude>
     <ClInclude Include="GameController.h">
-      <Filter>src\GameController</Filter>
+      <Filter>src\Game\GameController</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
-      <Filter>src\GameController</Filter>
+      <Filter>src\Game\GameController</Filter>
     </ClInclude>
     <ClInclude Include="GameStateTransition.h">
-      <Filter>src\GameController</Filter>
+      <Filter>src\Game\GameController</Filter>
     </ClInclude>
     <ClInclude Include="GameEvents.h">
       <Filter>src\Game</Filter>
@@ -129,7 +135,7 @@
       <Filter>src\Settings</Filter>
     </ClInclude>
     <ClInclude Include="MenuCreator.h">
-      <Filter>src\MenuCreator</Filter>
+      <Filter>src\Gui\MenuCreator</Filter>
     </ClInclude>
     <ClInclude Include="CameraSettings.h">
       <Filter>src\Settings</Filter>
@@ -151,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="TileSettings.h">
       <Filter>src\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Gui.h">
+      <Filter>src\Gui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

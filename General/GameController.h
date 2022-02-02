@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Fwd.h"
-#include "MenuCreator.h"
 
 #include <LaggySdk/EventHandler.h>
 
@@ -18,7 +17,4 @@ public:
 
 private:
   Game& d_game;
-  MenuCreator d_menuCreator;
-
-  void showMainMenu();
 };

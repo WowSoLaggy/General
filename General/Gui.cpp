@@ -1,0 +1,50 @@
+#include "stdafx.h"
+#include "Gui.h"
+
+#include "Game.h"
+
+#include <LaggyDx/IControl.h>
+
+
+Gui::Gui(Game& i_game)
+  : d_game(i_game)
+  , d_menuCreator(i_game)
+{
+}
+
+
+void Gui::showMainMenu()
+{
+  d_menuCreator.clearAll(d_game.getForm());
+  d_menuCreator.createMainMenu(d_game.getForm());
+}
+
+void Gui::hideMainMenu()
+{
+  d_menuCreator.clearAll(d_game.getForm());
+}
+
+
+void Gui::switchDebugMenu()
+{
+  d_debugMenuShown = !d_debugMenuShown;
+
+  if (!d_debugMenuShown)
+    hideDebugMenu();
+  else
+    showDebugMenu();
+}
+
+void Gui::showDebugMenu()
+{
+  if (!d_debugMenu)
+    d_debugMenu = d_menuCreator.createDebugMenu(d_game.getForm());
+  else
+    d_debugMenu->setVisible(true);
+}
+
+void Gui::hideDebugMenu()
+{
+  if (d_debugMenu)
+    d_debugMenu->setVisible(false);
+}

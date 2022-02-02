@@ -9,12 +9,13 @@
 class MenuCreator
 {
 public:
-  MenuCreator(GameController& i_gameController, Sdk::Vector2I i_resolution);
+  MenuCreator(Game& i_game);
 
   void clearAll(Dx::IControl& i_parent) const;
   void createMainMenu(Dx::IControl& i_parent) const;
 
+  std::shared_ptr<Dx::IControl> createDebugMenu(Dx::IControl& i_parent) const;
+
 private:
-  GameController& d_gameController;
-  Sdk::Vector2I d_resolution;
+  Game& d_game;
 };

@@ -18,6 +18,8 @@ public:
   void render();
   void update(double i_dt);
 
+  void setDrawBb(bool i_drawBb);
+
 private:
   CameraController d_cameraController;
   Dx::ISimpleRenderer& d_simpleRenderer;
@@ -25,6 +27,8 @@ private:
   Session& d_session;
 
   View d_view;
+
+  bool d_drawBb = false;
 
   void renderTile(Tile& i_tile);
 };

@@ -149,6 +149,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameStateTransition.cpp" />
+    <ClCompile Include="Gui.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuCreator.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -163,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionsController.h" />
+    <ClInclude Include="Gui.h" />
     <ClInclude Include="Prototype.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="CameraSettings.h" />

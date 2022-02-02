@@ -45,6 +45,8 @@ void SessionView::renderTile(Tile& i_tile)
   d_view.setObject(i_tile);
   d_simpleRenderer.draw(d_view);
 
+  d_simpleRenderer.setDrawAabb(d_drawBb);
+
   for (const auto& structurePtr : i_tile.getStructures())
   {
     d_view.setObject(*structurePtr);
@@ -56,10 +58,18 @@ void SessionView::renderTile(Tile& i_tile)
     d_view.setObject(*armyPtr);
     d_simpleRenderer.draw(d_view);
   }
+
+  d_simpleRenderer.setDrawAabb(false);
 }
 
 
-void SessionView::update(double i_dt)
+void SessionView::update(const double i_dt)
 {
   d_cameraController.update(i_dt);
+}
+
+
+void SessionView::setDrawBb(const bool i_drawBb)
+{
+  d_drawBb = i_drawBb;
 }

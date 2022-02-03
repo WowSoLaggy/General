@@ -1,12 +1,15 @@
 #pragma once
 
+#include "Fwd.h"
+
 #include <LaggyDx/ICamera.h>
+#include <LaggySdk/Vector.h>
 
 
 class CameraController
 {
 public:
-  CameraController();
+  CameraController(const Game& i_game);
 
   Dx::ICamera& getCamera();
   const Dx::ICamera& getCamera() const;
@@ -27,11 +30,15 @@ public:
   void zoomIn();
   void zoomOut();
 
+  void freeCameraStart();
+  void freeCameraStop();
+
   void resetCamera();
 
   void update(double i_dt);
 
 private:
+  const Game& d_game;
   std::unique_ptr<Dx::ICamera> d_camera;
 
   bool d_moveRight = false;
@@ -41,5 +48,11 @@ private:
   bool d_rotateCw = false;
   bool d_rotateCcw = false;
 
+  bool d_freeCamera = false;
+  Sdk::Vector2I d_prevMousePos;
+
   void createDefaultCamera();
+
+  void updateCameraMovement(double i_dt);
+  void updateCameraFreeRotation();
 };

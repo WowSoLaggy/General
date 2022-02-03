@@ -68,10 +68,22 @@ void ActionsController::createActionsInGame(Game& i_game)
 
   map.setAction(
     Dx::MouseKey::WheelUp,
-    Dx::Action(std::bind(&CameraController::zoomIn, &i_game.getSessionView().getCameraController())));
+    Dx::Action(std::bind(&CameraController::zoomIn, &i_game.getSessionView().getCameraController())),
+    Dx::ActionType::OnPress);
   map.setAction(
     Dx::MouseKey::WheelDown,
-    Dx::Action(std::bind(&CameraController::zoomOut, &i_game.getSessionView().getCameraController())));
+    Dx::Action(std::bind(&CameraController::zoomOut, &i_game.getSessionView().getCameraController())),
+    Dx::ActionType::OnPress);
+
+
+  map.setAction(
+    Dx::MouseKey::Middle,
+    Dx::Action(std::bind(&CameraController::freeCameraStart, &i_game.getSessionView().getCameraController())),
+    Dx::ActionType::OnPress);
+  map.setAction(
+    Dx::MouseKey::Middle,
+    Dx::Action(std::bind(&CameraController::freeCameraStop, &i_game.getSessionView().getCameraController())),
+    Dx::ActionType::OnRelease);
 
 
   map.setAction(

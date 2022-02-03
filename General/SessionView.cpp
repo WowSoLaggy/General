@@ -10,7 +10,8 @@
 
 
 SessionView::SessionView(Game& i_game)
-  : d_simpleRenderer(Dx::ISimpleRenderer::getOrCreate(
+  : d_cameraController(i_game)
+  , d_simpleRenderer(Dx::ISimpleRenderer::getOrCreate(
       i_game.getRenderDevice(), d_cameraController.getCamera(), i_game.getResourceController()))
   , d_session(i_game.getSession())
   , d_view(i_game.getResourceController())

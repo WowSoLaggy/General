@@ -2,12 +2,14 @@
 #include "CameraController.h"
 
 #include "CameraSettings.h"
+#include "Game.h"
 
 #include <LaggyDx/Game.h>
 #include <LaggySdk/Math.h>
 
 
-CameraController::CameraController()
+CameraController::CameraController(const Game& i_game)
+  : d_game(i_game)
 {
   createDefaultCamera();
 }
@@ -51,6 +53,18 @@ void CameraController::zoomOut()
 }
 
 
+void CameraController::freeCameraStart()
+{
+  d_freeCamera = true;
+  d_prevMousePos = d_game.getInputDevice().getMousePosition();
+}
+
+void CameraController::freeCameraStop()
+{
+  d_freeCamera = false;
+}
+
+
 void CameraController::resetCamera()
 {
   d_camera->setUp(CameraSettings::Up);
@@ -61,6 +75,14 @@ void CameraController::resetCamera()
 
 
 void CameraController::update(const double i_dt)
+{
+  updateCameraMovement(i_dt);
+
+  if (d_freeCamera)
+    updateCameraFreeRotation();
+}
+
+void CameraController::updateCameraMovement(double i_dt)
 {
   auto moveCamera = [&](const Sdk::Vector3F& i_direction)
   {
@@ -90,6 +112,17 @@ void CameraController::update(const double i_dt)
     rotateCamera(-1);
   else if (d_rotateCcw && !d_rotateCw)
     rotateCamera(1);
+}
+
+void CameraController::updateCameraFreeRotation()
+{
+  const auto newMousePos = d_game.getInputDevice().getMousePosition();
+  const auto mousePosDiff = newMousePos - d_prevMousePos;
+
+  getCamera().setYaw(getCamera().getYaw() - (float)mousePosDiff.x * CameraSettings::FreeRotateYawMultiplier);
+  getCamera().setPitch(getCamera().getPitch() + (float)mousePosDiff.y * CameraSettings::FreeRotatePitchMultiplier);
+
+  d_prevMousePos = std::move(newMousePos);
 }
 
 

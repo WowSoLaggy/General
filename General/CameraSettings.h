@@ -15,4 +15,7 @@ public:
   static constexpr double SpeedAngular = 3;
   static constexpr float ZoomInMultiplier = 0.9f;
   static constexpr float ZoomOutMultiplier = 1.11111111111f;
+
+  static constexpr float FreeRotateYawMultiplier = 0.004f;
+  static constexpr float FreeRotatePitchMultiplier = 0.004f;
 };

@@ -153,6 +153,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuCreator.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectView.cpp" />
     <ClCompile Include="PrototypeCollection.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -160,11 +161,12 @@
     </ClCompile>
     <ClCompile Include="SessionView.cpp" />
     <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="View.cpp" />
+    <ClCompile Include="TileView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionsController.h" />
     <ClInclude Include="Gui.h" />
+    <ClInclude Include="ObjectView.h" />
     <ClInclude Include="Prototype.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="CameraSettings.h" />
@@ -185,7 +187,8 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGridSettings.h" />
     <ClInclude Include="TileSettings.h" />
-    <ClInclude Include="View.h" />
+    <ClInclude Include="TileView.h" />
+    <ClInclude Include="WorldEvents.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LaggyDx\LaggyDx\LaggyDx.vcxproj">

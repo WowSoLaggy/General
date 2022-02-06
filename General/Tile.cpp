@@ -4,6 +4,7 @@
 #include "PrototypeCollection.h"
 #include "TileGridSettings.h"
 #include "TileSettings.h"
+#include "WorldEvents.h"
 
 
 Tile::Tile()
@@ -64,9 +65,11 @@ const std::vector<std::shared_ptr<Object>>& Tile::getStructures() const
 void Tile::addStructure(std::shared_ptr<Object> i_structure)
 {
   if (d_structures.size() < TileSettings::MaxStructures)
-    d_structures.push_back(std::move(i_structure));
+    d_structures.push_back(i_structure);
 
   repositionStructures();
+
+  notify(ObjectAddedEvent(*i_structure));
 }
 
 void Tile::removeStructure(Object& i_structure)
@@ -75,6 +78,8 @@ void Tile::removeStructure(Object& i_structure)
     [&](const auto& i_ptr) { return i_ptr.get() == &i_structure; }), d_structures.end());
 
   repositionStructures();
+
+  notify(ObjectRemovedEvent(i_structure));
 }
 
 
@@ -89,6 +94,8 @@ void Tile::addArmy(std::shared_ptr<Object> i_army)
     d_armies.push_back(std::move(i_army));
 
   repositionArmies();
+
+  notify(ObjectAddedEvent(*i_army));
 }
 
 void Tile::removeArmy(Object& i_army)
@@ -97,6 +104,8 @@ void Tile::removeArmy(Object& i_army)
     [&](const auto& i_ptr) { return i_ptr.get() == &i_army; }), d_armies.end());
 
   repositionArmies();
+
+  notify(ObjectRemovedEvent(i_army));
 }
 
 

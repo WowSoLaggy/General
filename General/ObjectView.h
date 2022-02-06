@@ -6,12 +6,14 @@
 #include <LaggyDx/LaggyDxFwd.h>
 
 
-class View : public Dx::IObject3
+class ObjectView : public Dx::IObject3
 {
 public:
-  View(const Dx::IResourceController& i_resourceController);
+  ObjectView(Object& i_object, const Dx::IResourceController& i_resourceController);
 
-  void setObject(Object& i_object);
+  const Object& getObject() const;
+
+  void update();
 
   virtual Sdk::Vector3F getPosition() const override;
   virtual Sdk::Vector3F getRotation() const override;
@@ -21,13 +23,10 @@ public:
   virtual const Dx::ITextureResource* getTextureResource() const override;
 
 private:
-  Object* d_object = nullptr;
-
-  const Dx::IResourceController& d_resourceController;
+  Object& d_object;
 
   const Dx::IModel* d_model = nullptr;
   const Dx::ITextureResource* d_textureResource = nullptr;
 
   const Dx::Animation* getAnimation() const;
-  void checkAnimation() const;
 };

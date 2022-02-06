@@ -69,8 +69,8 @@ namespace
     };
 
     const std::array<Sdk::Vector2I, 2> StartLocations{ {
-      { 0, 0 },
-      { 2, 2 }
+      { 0, 0 }, // player
+      { 2, 2 }  // AI
     } };
 
     for (const auto& startLocation : StartLocations)
@@ -83,6 +83,8 @@ namespace
       createWorker(startLocation);
       createWorker(startLocation);
     }
+
+    i_session.setPlayerStartTile(StartLocations.front());
   }
 
 } // anonym NS

@@ -4,7 +4,10 @@ class Game;
 class GameController;
 class Session;
 
-class Object;
 class Tile;
+class Object;
+
+class TileView;
+class ObjectView;
 
 struct Prototype;

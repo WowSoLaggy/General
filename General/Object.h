@@ -2,10 +2,11 @@
 
 #include "Fwd.h"
 
+#include <LaggySdk/EventHandler.h>
 #include <LaggySdk/Vector.h>
 
 
-class Object
+class Object : public Sdk::EventHandler
 {
 public:
   Object(const Prototype& i_prototype);

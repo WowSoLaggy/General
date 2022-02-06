@@ -72,9 +72,6 @@
     <ClCompile Include="CreateSession.cpp">
       <Filter>src\Session</Filter>
     </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>src\View</Filter>
-    </ClCompile>
     <ClCompile Include="MenuCreator.cpp">
       <Filter>src\Gui\MenuCreator</Filter>
     </ClCompile>
@@ -89,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="Gui.cpp">
       <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="TileView.cpp">
+      <Filter>src\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectView.cpp">
+      <Filter>src\View</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +131,6 @@
     <ClInclude Include="CreateSession.h">
       <Filter>src\Session</Filter>
     </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>src\View</Filter>
-    </ClInclude>
     <ClInclude Include="TileGridSettings.h">
       <Filter>src\Settings</Filter>
     </ClInclude>
@@ -160,6 +160,15 @@
     </ClInclude>
     <ClInclude Include="Gui.h">
       <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="TileView.h">
+      <Filter>src\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectView.h">
+      <Filter>src\View</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldEvents.h">
+      <Filter>src\World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

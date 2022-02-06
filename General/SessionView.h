@@ -2,7 +2,7 @@
 
 #include "CameraController.h"
 #include "Fwd.h"
-#include "View.h"
+#include "ObjectView.h"
 
 #include <LaggyDx/LaggyDxFwd.h>
 
@@ -23,12 +23,14 @@ public:
 private:
   CameraController d_cameraController;
   Dx::ISimpleRenderer& d_simpleRenderer;
+  Dx::IResourceController& d_resourceController;
 
   Session& d_session;
 
-  View d_view;
+  ObjectView d_backgroundView;
+  std::vector<std::shared_ptr<TileView>> d_tileViews;
 
   bool d_drawBb = false;
 
-  void renderTile(Tile& i_tile);
+  void addView(Tile& i_tile);
 };

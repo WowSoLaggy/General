@@ -22,31 +22,32 @@ const Object* ObjectPicker::pick() const
 {
   const auto ray = castRay();
 
-  auto intersect = [&](const Object& i_object) -> bool
+  double tminGlobal = std::numeric_limits<double>::max();
+  const Object* closestObject = nullptr;
+
+  auto intersect = [&](const Object& i_object)
   {
     if (const auto obbOpt = i_object.getObb())
-      return obbOpt->intersect(ray);
-    return false;
+    {
+      if (const auto tmin = obbOpt->intersect(ray))
+      {
+        if (tmin < tminGlobal)
+          closestObject = &i_object;
+      }
+    }
   };
 
-  auto checkArray = [&](const auto& i_arr) -> const Object*
+  auto checkArray = [&](const auto& i_arr)
   {
     for (const auto& objPtr : i_arr)
-    {
-      if (intersect(*objPtr))
-        return objPtr.get();
-    }
-    return nullptr;
+      intersect(*objPtr);
   };
 
   for (const auto& tilePtr : d_game.getSession().getTiles())
   {
     for (const auto& arr : { tilePtr->getStructures(), tilePtr->getArmies() })
-    {
-      if (const auto* matchObj = checkArray(arr))
-        return matchObj;
-    }
+      checkArray(arr);
   }
 
-  return nullptr;
+  return closestObject;
 }

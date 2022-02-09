@@ -31,8 +31,11 @@ const Object* ObjectPicker::pick() const
     {
       if (const auto tmin = obbOpt->intersect(ray))
       {
-        if (tmin < tminGlobal)
+        if (*tmin < tminGlobal)
+        {
+          tminGlobal = *tmin;
           closestObject = &i_object;
+        }
       }
     }
   };

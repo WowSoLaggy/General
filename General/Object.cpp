@@ -79,10 +79,16 @@ const ObjectView* Object::getView() const
 }
 
 
+std::optional<Dx::Aabb> Object::getAabb() const
+{
+  if (const auto* view = getView())
+    return view->getModel().getAabb();
+  return std::nullopt;
+}
+
 std::optional<Dx::Obb> Object::getObb() const
 {
   if (const auto* view = getView())
     return Dx::Obb{ view->getModel().getAabb(), getPosition(), getRotation() };
-
   return std::nullopt;
 }

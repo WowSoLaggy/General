@@ -138,3 +138,17 @@ ObjectInfo MenuCreator::createObjectInfo(Dx::IControl& i_parent) const
   
   return ObjectInfo{ *panel, *label };
 }
+
+IngameGui MenuCreator::createIngameGui(Dx::IControl& i_parent) const
+{
+  const auto resolution = d_game.getRenderDevice().getResolution();
+
+  auto panel = createPanel(i_parent);
+  panel->setTexture("brown.png");
+  panel->setSize({ (float)resolution.x, 32 });
+
+  auto label = createLabel(*panel);
+  label->setPosition({ (float)resolution.x - 150, -3 });
+
+  return IngameGui{ *panel, *label };
+}

@@ -25,6 +25,27 @@ void Gui::hideMainMenu()
 }
 
 
+void Gui::showIngameGui()
+{
+  if (!d_ingameGui)
+    d_ingameGui.emplace(d_menuCreator.createIngameGui(d_game.getForm()));
+  else
+    d_ingameGui->show();
+}
+
+void Gui::hideIngameGui()
+{
+  if (d_ingameGui)
+    d_ingameGui->hide();
+}
+
+void Gui::setTurn(const int i_turn)
+{
+  if (d_ingameGui)
+    d_ingameGui->setTurn(i_turn);
+}
+
+
 void Gui::switchDebugMenu()
 {
   d_debugMenuShown = !d_debugMenuShown;

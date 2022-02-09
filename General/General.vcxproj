@@ -154,6 +154,7 @@
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameStateTransition.cpp" />
     <ClCompile Include="Gui.cpp" />
+    <ClCompile Include="IngameGui.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuCreator.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -172,6 +173,7 @@
   <ItemGroup>
     <ClInclude Include="ActionsController.h" />
     <ClInclude Include="Gui.h" />
+    <ClInclude Include="IngameGui.h" />
     <ClInclude Include="ObjectInfo.h" />
     <ClInclude Include="ObjectPicker.h" />
     <ClInclude Include="ObjectView.h" />

@@ -16,6 +16,7 @@ namespace
     map.insert({ "tile", { "tile", "tile.fbx", "tile_grass.png" } });
     map.insert({ "base", { "base", "base.fbx", "base.png" } });
     map.insert({ "worker", { "worker", "worker.fbx", "" } });
+    map.insert({ "selection_marker", { "selection_marker", "circle.fbx", "yellow.png" } });
 
     return map;
   }

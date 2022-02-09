@@ -35,6 +35,7 @@ public:
   void dettachView();
   const ObjectView* getView() const;
 
+  std::optional<Dx::Aabb> getAabb() const;
   std::optional<Dx::Obb> getObb() const;
 
 private:

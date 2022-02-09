@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Fwd.h"
+#include "IngameGui.h"
 #include "MenuCreator.h"
 #include "ObjectInfo.h"
 
@@ -15,6 +16,10 @@ public:
   void showMainMenu();
   void hideMainMenu();
 
+  void showIngameGui();
+  void hideIngameGui();
+  void setTurn(int i_turn);
+
   void switchDebugMenu();
   void showDebugMenu();
   void hideDebugMenu();
@@ -27,6 +32,7 @@ private:
   MenuCreator d_menuCreator;
 
   std::shared_ptr<Dx::IControl> d_debugMenu;
+  std::optional<IngameGui> d_ingameGui;
   std::optional<ObjectInfo> d_objectInfo;
 
   bool d_debugMenuShown = false;

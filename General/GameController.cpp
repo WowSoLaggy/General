@@ -24,7 +24,7 @@ void GameController::processEvent(const Sdk::IEvent& i_event)
 }
 
 
-void GameController::onNewGameClick() const
+void GameController::onNewGameClick()
 {
   d_game.getGui().hideMainMenu();
 
@@ -32,6 +32,9 @@ void GameController::onNewGameClick() const
   d_game.attachSessionView();
 
   ActionsController().createActionsInGame(d_game);
+
+  d_game.getGui().showIngameGui();
+  onNewTurn();
 }
 
 void GameController::onExitClick() const
@@ -66,4 +69,16 @@ void GameController::unpickObject()
 bool GameController::isObjectPicked() const
 {
   return d_pickedObject != nullptr;
+}
+
+const Object* GameController::getPickedObject() const
+{
+  return d_pickedObject;
+}
+
+
+void GameController::onNewTurn()
+{
+  ++d_turn;
+  d_game.getGui().setTurn(d_turn);
 }

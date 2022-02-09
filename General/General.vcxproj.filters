@@ -102,6 +102,9 @@
     <ClCompile Include="ObjectInfo.cpp">
       <Filter>src\Gui</Filter>
     </ClCompile>
+    <ClCompile Include="IngameGui.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -183,6 +186,9 @@
       <Filter>src\ObjectPicker</Filter>
     </ClInclude>
     <ClInclude Include="ObjectInfo.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="IngameGui.h">
       <Filter>src\Gui</Filter>
     </ClInclude>
   </ItemGroup>

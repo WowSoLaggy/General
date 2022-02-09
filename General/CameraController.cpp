@@ -120,7 +120,11 @@ void CameraController::updateCameraFreeRotation()
   const auto mousePosDiff = newMousePos - d_prevMousePos;
 
   getCamera().setYaw(getCamera().getYaw() - (float)mousePosDiff.x * CameraSettings::FreeRotateYawMultiplier);
-  getCamera().setPitch(getCamera().getPitch() + (float)mousePosDiff.y * CameraSettings::FreeRotatePitchMultiplier);
+
+  float newPitch = getCamera().getPitch() + (float)mousePosDiff.y * CameraSettings::FreeRotatePitchMultiplier;
+  newPitch = std::min(newPitch, CameraSettings::MaxPitch);
+  newPitch = std::max(newPitch, CameraSettings::MinPitch);
+  getCamera().setPitch(newPitch);
 
   d_prevMousePos = std::move(newMousePos);
 }

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TileView.h"
 
+#include "Object.h"
 #include "Tile.h"
 #include "WorldEvents.h"
 
@@ -51,13 +52,17 @@ void TileView::processEvent(const Sdk::IEvent& i_event)
 void TileView::addView(Object& i_object)
 {
   auto objectViewPtr = std::make_shared<ObjectView>(i_object, d_resourceController);
-  d_objectViews.push_back(std::move(objectViewPtr));
+  d_objectViews.push_back(objectViewPtr);
+
+  i_object.attachView(*objectViewPtr);
 }
 
 void TileView::removeView(Object& i_object)
 {
   d_objectViews.erase(std::remove_if(d_objectViews.begin(), d_objectViews.end(),
     [&](const auto& i_ptr) { return &i_ptr->getObject() == &i_object; }), d_objectViews.end());
+
+  i_object.dettachView();
 }
 
 

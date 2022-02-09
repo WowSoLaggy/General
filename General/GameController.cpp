@@ -5,6 +5,9 @@
 #include "CreateSession.h"
 #include "Game.h"
 #include "GameEvents.h"
+#include "ObjectPicker.h"
+
+#include <LaggyDx/IModel.h>
 
 
 GameController::GameController(Game& i_game)
@@ -21,7 +24,7 @@ void GameController::processEvent(const Sdk::IEvent& i_event)
 }
 
 
-void GameController::onNewGameClick()
+void GameController::onNewGameClick() const
 {
   d_game.getGui().hideMainMenu();
 
@@ -31,7 +34,36 @@ void GameController::onNewGameClick()
   ActionsController().createActionsInGame(d_game);
 }
 
-void GameController::onExitClick()
+void GameController::onExitClick() const
 {
   d_game.stop();
+}
+
+
+void GameController::tryPickObject()
+{
+  if (const auto* obj = ObjectPicker(d_game).pick())
+  {
+    if (obj != d_pickedObject)
+      pickObject(*obj);
+  }
+  else if (isObjectPicked())
+    unpickObject();
+}
+
+void GameController::pickObject(const Object& i_object)
+{
+  d_pickedObject = &i_object;
+  d_game.getGui().showObjectInfo(i_object);
+}
+
+void GameController::unpickObject()
+{
+  d_game.getGui().hideObjectInfo();
+  d_pickedObject = nullptr;
+}
+
+bool GameController::isObjectPicked() const
+{
+  return d_pickedObject != nullptr;
 }

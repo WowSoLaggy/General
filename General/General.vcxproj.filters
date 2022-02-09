@@ -40,6 +40,9 @@
     <Filter Include="src\Session\SessionView">
       <UniqueIdentifier>{b1bc871d-69a5-4367-8dd2-475563200323}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ObjectPicker">
+      <UniqueIdentifier>{51bc96c4-ca3b-4769-a7c1-4cc472bd06c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -92,6 +95,12 @@
     </ClCompile>
     <ClCompile Include="ObjectView.cpp">
       <Filter>src\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPicker.cpp">
+      <Filter>src\ObjectPicker</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectInfo.cpp">
+      <Filter>src\Gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="WorldEvents.h">
       <Filter>src\World</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPicker.h">
+      <Filter>src\ObjectPicker</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectInfo.h">
+      <Filter>src\Gui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

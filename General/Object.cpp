@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "Object.h"
 
+#include "ObjectView.h"
+
+#include <LaggyDx/IModel.h>
+
 
 Object::Object(const Prototype& i_prototype)
   : d_prototype(i_prototype)
@@ -56,4 +60,29 @@ void Object::onAnimationEnd(const double i_animLength)
   }
   else
     d_animationTime -= i_animLength;
+}
+
+
+void Object::attachView(const ObjectView& i_objectView)
+{
+  d_objectView = &i_objectView;
+}
+
+void Object::dettachView()
+{
+  d_objectView = nullptr;
+}
+
+const ObjectView* Object::getView() const
+{
+  return d_objectView;
+}
+
+
+std::optional<Dx::Obb> Object::getObb() const
+{
+  if (const auto* view = getView())
+    return Dx::Obb{ view->getModel().getAabb(), getPosition(), getRotation() };
+
+  return std::nullopt;
 }

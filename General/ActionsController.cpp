@@ -3,6 +3,7 @@
 
 #include "CameraController.h"
 #include "Game.h"
+#include "GameController.h"
 #include "Gui.h"
 
 
@@ -89,6 +90,12 @@ void ActionsController::createActionsInGame(Game& i_game)
   map.setAction(
     Dx::KeyboardKey::C,
     Dx::Action(std::bind(&CameraController::resetCamera, &i_game.getSessionView().getCameraController())),
+    Dx::ActionType::OnPress);
+
+
+  map.setAction(
+    Dx::MouseKey::Left,
+    Dx::Action(std::bind(&GameController::tryPickObject, &i_game.getController())),
     Dx::ActionType::OnPress);
 
 

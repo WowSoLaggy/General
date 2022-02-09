@@ -2,15 +2,16 @@
 
 #include "Fwd.h"
 
+#include <LaggyDx/Obb.h>
 #include <LaggySdk/EventHandler.h>
+#include <LaggySdk/IUniqueId.h>
 #include <LaggySdk/Vector.h>
 
 
-class Object : public Sdk::EventHandler
+class Object : public Sdk::EventHandler, public Sdk::IUniqueId
 {
 public:
   Object(const Prototype& i_prototype);
-  virtual ~Object() = default;
 
   const Prototype& getPrototype() const;
 
@@ -30,6 +31,12 @@ public:
 
   void onAnimationEnd(double i_animLength);
 
+  void attachView(const ObjectView& i_objectView);
+  void dettachView();
+  const ObjectView* getView() const;
+
+  std::optional<Dx::Obb> getObb() const;
+
 private:
   const Prototype& d_prototype;
 
@@ -40,4 +47,6 @@ private:
   std::string d_animationName;
   double d_animationTime = 0.0;
   bool d_animationLoop = false;
+
+  const ObjectView* d_objectView = nullptr;
 };

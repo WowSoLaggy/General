@@ -11,9 +11,9 @@ public:
   static constexpr int MaxArmies = 4;
 
   static constexpr Sdk::Vector3F StructureOffsets[MaxStructures] {
-    { 0.0f, 0.6f, 0.0f },
-    { -0.6f, 0.2f, 0.0f },
-    { 0.6f, 0.2f, 0.0f },
+    { 0.0f, 0.4f, 0.0f },
+    { -0.4f, 0.2f, 0.0f },
+    { 0.4f, 0.2f, 0.0f },
   };
 
   static constexpr float StructureRotations[MaxStructures] {
